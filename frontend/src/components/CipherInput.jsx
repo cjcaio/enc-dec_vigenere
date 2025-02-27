@@ -1,0 +1,145 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import styled from '@emotion/styled';
+import TextInput from './TextInput';
+import KeyInput from './KeyInput';
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+`;
+
+const ActionButton = styled.button`
+    background-color: ${props => props.isFlipped ? '#f97316' : '#60a5fa'};
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+    }
+`;
+
+
+const QuestionText = styled.p`
+    color: #000;
+    margin: 1rem 0;
+    font-size: 16px;
+    text-align: center;
+`;
+
+const CardContainer = styled.div`
+    perspective: 1000px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 200px;
+    margin: 20px 0; // Add some margin for better spacing
+`;
+
+
+const Card = styled(motion.div)`
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    min-height: 150px;
+`;
+
+const CardFace = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    background-color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+
+    /* Add these properties */
+    top: 0;
+    left: 0;
+
+    &:hover {
+        border-color: #60a5fa;
+    }
+`;
+
+
+
+
+const FrontFace = styled(CardFace)``;
+
+const BackFace = styled(CardFace)`
+    transform: rotateY(180deg);
+`;
+
+const CipherInput = ({ onEncrypt, onDecrypt }) => {
+    const [text, setText] = useState('');
+    const [key, setKey] = useState('');
+    const [result, setResult] = useState('');
+    const [encryptedText, setEncryptedText] = useState('');
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleSubmit = () => {
+        if (!text || !key) return;
+        if (!isFlipped) {
+            setEncryptedText(text);
+        }
+
+        setIsFlipped(!isFlipped);
+    };
+
+
+    return (
+        <Container>
+            <ActionButton onClick={handleSubmit} isFlipped={isFlipped}>
+                {isFlipped ? 'DECODE' : 'ENCODE'}
+            </ActionButton>
+
+            <CardContainer>
+                <Card
+                    initial={false}
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <FrontFace>
+                        <TextInput
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                            placeholder="Enter text to encode..."
+                        />
+                    </FrontFace>
+                    <BackFace>
+                        <TextInput
+                            value={encryptedText}
+                            readOnly
+                            placeholder="Encrypted text will appear here..."
+                        />
+                    </BackFace>
+                </Card>
+            </CardContainer>
+
+            <KeyInput
+                type="text"
+                value={key}
+                onChange={(e) => setKey(e.target.value)}
+                placeholder="Enter your key"
+            />
+        </Container>
+    );
+};
+
+export default CipherInput;
