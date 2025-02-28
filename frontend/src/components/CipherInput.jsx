@@ -40,7 +40,7 @@ const CardContainer = styled.div`
     width: 100%;
     max-width: 500px;
     min-height: 200px;
-    margin: 20px 0; // Add some margin for better spacing
+    margin: 20px 0; 
 `;
 
 
@@ -56,26 +56,26 @@ const CardFace = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    min-height: 150px;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     border-radius: 10px;
-    border: 2px solid #e2e8f0;
+    border: 2.5px solid #1a1a1a; 
     background-color: white;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 3px 3px 0 rgba(26, 26, 26, 0.9);
     box-sizing: border-box;
-    transition: border-color 0.2s ease;
-
-    /* Add these properties */
-    top: 0;
-    left: 0;
+    transition: border-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-        border-color: #60a5fa;
+        border-color: #1a1a1a;
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 rgba(26, 26, 26, 0.9);
     }
 `;
+
 
 
 
