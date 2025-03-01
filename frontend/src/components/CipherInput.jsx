@@ -23,19 +23,25 @@ const ButtonWrapper = styled.div`
 
 
 const ActionButton = styled.button`
-    background-color: ${props => props.isFlipped ? '#fca65a' : '#A0C4FF'};
-    color: #333;
-    border: 1px solid #999;
+    background-color: ${props => props.isFlipped ? 'var(--decode-color)' : 'var(--accent-color)'};
+    color: var(--text-light);
+    border: 2px solid var(--border-color-light);
     border-radius: 12px;
     padding: 8px 24px;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.15s ease;
+    transition: background-color 0.3s ease, transform 0.15s ease, border-color 0.3s ease, color 0.3s ease;
+
+    body.dark-mode & {
+        background-color: ${props => props.isFlipped ? 'var(--decode-color-dark)' : 'var(--accent-color-dark)'};
+        color: var(--text-dark);
+        border-color: var(--border-color-dark);
+    }
 
     &:hover {
-        background-color: ${props => props.isFlipped ? '#fdae71' : '#B0D0FF'};
+        background-color: ${props => props.isFlipped ? 'var(--decode-color-hover)' : 'var(--accent-color-hover)'};
         transform: translateY(-2px);
     }
 
@@ -44,6 +50,7 @@ const ActionButton = styled.button`
     }
 `;
 
+
 const CardContainer = styled.div`
     perspective: 1000px;
     width: 100%;
@@ -51,7 +58,6 @@ const CardContainer = styled.div`
     min-height: 200px;
     margin: 20px 0; 
 `;
-
 
 const Card = styled(motion.div)`
     width: 100%;

@@ -13,9 +13,14 @@ const FooterContainer = styled.footer`
 const Divider = styled.div`
     width: 100%;
     height: 2px;
-    background-color: #1a1a1a;
+    background-color: var(--border-color);
     margin-bottom: 20px;
+
+    body.dark-mode & {
+        background-color: var(--text-dark);
+    }
 `;
+
 
 const SocialLinks = styled.div`
     display: flex;

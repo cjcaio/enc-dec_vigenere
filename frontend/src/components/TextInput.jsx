@@ -7,9 +7,9 @@ const StyledTextArea = styled.textarea`
     min-height: 150px;
     border: none;
     background: transparent;
-    font-family: 'Helvetica Neue', 'Arial', sans-serif; 
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 400;
-    letter-spacing: -0.02em; 
+    letter-spacing: -0.02em;
     font-size: 16px;
     padding: 15px;
     text-align: center;
@@ -28,9 +28,21 @@ const StyledTextArea = styled.textarea`
 
     &:focus {
         outline: none;
-        background-color: rgba(26, 26, 26, 0.02);
+        background-color: transparent;
+    }
+
+    body.dark-mode & {
+        color: #ffffff;
+        background-color: #393E46FF;
+    }
+
+    body.dark-mode &:focus {
+        outline: none;
+        background-color: #393E46FF;
     }
 `;
+
+
 
 const TextInput = (props) => {
     return <StyledTextArea {...props} />;

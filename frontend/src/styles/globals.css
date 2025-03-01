@@ -1,19 +1,24 @@
 :root {
     --background-light: #f9fafb;
-    --background-dark: #1a1a1a;
+    --background-dark: #222831;
     --text-light: #1a1a1a;
-    --text-dark: #ffffff;
+    --text-dark: #eeeeee;
     --accent-color: #60a5fa;
+    --accent-color-dark: #2a4380;
     --accent-color-hover: #3b82f6;
     --decode-color: #f97316;
+    --decode-color-dark: #da6e21;
     --decode-color-hover: #ea580c;
     --border-color: #1a1a1a;
+    --border-color-dark: #4a4f57;
     --border-radius: 10px;
     --box-shadow: 3px 3px 0 rgba(26, 26, 26, 0.9);
-    --box-shadow-hover: 5px 5px 0 rgba(26, 26, 26, 0.9);
+    --box-shadow-hover: 5px 5px 0 rgba(26, 26, 26, 0.2);
     --button-shadow: 2px 2px 0 rgba(26, 26, 26, 0.3);
     --button-shadow-hover: 3px 3px 0 rgba(26, 26, 26, 0.3);
     --transition: all 0.2s ease;
+    --surface-light: #ffffff;
+    --surface-dark: #393e46;
 }
 
 
@@ -28,14 +33,81 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 body.dark-mode {
     background-color: var(--background-dark);
     color: var(--text-dark);
 }
 
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: var(--surface-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-dark);
+    box-shadow: var(--box-shadow-dark);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-color-dark);
+}
+
+body.dark-mode button {
+    background-color: var(--accent-color-dark);
+    border-color: var(--border-color-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--accent-color);
+    transform: translate(-1px, -1px);
+}
+
+body.dark-mode .footer-icon {
+    border-top-color: var(--text-dark);
+}
+
+body.dark-mode button.encode-button {
+    background-color: var(--accent-color-dark);
+}
+
+body.dark-mode button.encode-button:hover {
+    background-color: var(--accent-color);
+}
+
+body.dark-mode button.decode-button {
+    background-color: var(--decode-color-dark);
+}
+
+body.dark-mode button.decode-button:hover {
+    background-color: var(--decode-color);
+}
+
+body.dark-mode h1::after {
+    background-color: var(--text-dark);
+}
+
+body.dark-mode .about-container {
+    background-color: transparent;
+}
+
+body.dark-mode .card,
+body.dark-mode .container-secondary {
+    background-color: var(--surface-dark);
+    border-color: var(--border-color-dark);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: rgba(238, 238, 238, 0.5);
+}
+
+body.dark-mode svg {
+    color: var(--text-dark);
+}
 
 .container {
     max-width: 800px;
