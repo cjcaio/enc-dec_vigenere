@@ -56,10 +56,11 @@ export const Sidebar = styled(motion.div)`
         width: 100%;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        height: 100vh; // Garante altura total em mobile
-        padding-bottom: 40px; // Adiciona espaço extra no final para mobile
+        height: 100vh;
+        padding: 20px 12px;
     }
 `;
+
 
 
 export const SidebarContent = styled.div`
