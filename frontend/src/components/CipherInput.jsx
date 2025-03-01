@@ -11,21 +11,34 @@ const Container = styled.div`
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    gap: 2rem;
 `;
+
+const ButtonWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+`;
+
 
 const ActionButton = styled.button`
     background-color: ${props => props.isFlipped ? '#f97316' : '#60a5fa'};
     color: white;
     border: none;
     border-radius: 20px;
-    padding: 8px 16px;
+    padding: 8px 24px;
     font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: var(--transition);
+    box-shadow: var(--button-shadow);
 
     &:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: var(--button-shadow-hover);
     }
 `;
+
 
 
 const QuestionText = styled.p`
@@ -77,9 +90,6 @@ const CardFace = styled.div`
 `;
 
 
-
-
-
 const FrontFace = styled(CardFace)``;
 
 const BackFace = styled(CardFace)`
@@ -105,9 +115,11 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
 
     return (
         <Container>
-            <ActionButton onClick={handleSubmit} isFlipped={isFlipped}>
-                {isFlipped ? 'DECODE' : 'ENCODE'}
-            </ActionButton>
+            <ButtonWrapper>
+                <ActionButton onClick={handleSubmit} isFlipped={isFlipped}>
+                    {isFlipped ? 'DECODE' : 'ENCODE'}
+                </ActionButton>
+            </ButtonWrapper>
 
             <CardContainer>
                 <Card

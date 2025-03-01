@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import CipherInput from './components/CipherInput';
 import ResultDisplay from './components/ResultDisplay';
+import About from './components/About';
 import './styles/globals.css';
 
 function App() {
@@ -15,16 +16,18 @@ function App() {
     setResult(`Decrypted: ${text} (with key: ${key})`);
   };
 
-  return (
-      <div className="container">
-        <ThemeToggle />
-        <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          Vigenère Cipher
-        </h1>
-        <CipherInput onEncrypt={handleEncrypt} onDecrypt={handleDecrypt} />
-        <ResultDisplay result={result} />
-      </div>
-  );
+    return (
+        <div className="container">
+            <About />
+            <ThemeToggle />
+            <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                Vigenère Cipher
+            </h1>
+            <CipherInput onEncrypt={handleEncrypt} onDecrypt={handleDecrypt} />
+            <ResultDisplay result={result} />
+        </div>
+    );
 }
+
 
 export default App;
