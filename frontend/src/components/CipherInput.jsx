@@ -107,14 +107,13 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
         if (!text || !key) return;
 
         try {
+            let apiResult;
             if (!isFlipped) {
-                await onEncrypt(text, key);
+                apiResult = await onEncrypt(text, key);
+                setEncryptedText(apiResult);
             } else {
-                await onDecrypt(encryptedText, key);
-            }
-
-            if (!isFlipped) {
-                setEncryptedText(text);
+                apiResult = await onDecrypt(encryptedText, key);
+                setText(apiResult);
             }
 
             setIsFlipped(!isFlipped);
@@ -122,6 +121,7 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
             console.error('Error:', error);
         }
     };
+
 
 
 
