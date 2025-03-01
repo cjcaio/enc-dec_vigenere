@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import CipherInput from './components/CipherInput';
-import About from './components/About';
+import About from './components/about/About';
 import Footer from './components/Footer';
 import './styles/globals.css';
 
