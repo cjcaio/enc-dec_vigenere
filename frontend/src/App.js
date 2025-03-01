@@ -4,16 +4,27 @@ import CipherInput from './components/CipherInput';
 import About from './components/about/About';
 import Footer from './components/Footer';
 import './styles/globals.css';
+import { checkSecretCombo } from './secret';
 
 function App() {
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
+  const [easterEgg, setEasterEgg] = useState({ found: false, message: '' });
 
   const apiCall = async (endpoint, text, key) => {
-       try {
-           const response = await fetch(`http://localhost:8080/api/${endpoint}`, {
-               method: 'POST',
-               headers: {
+   try {
+       const secretCheck = checkSecretCombo(text, key);
+       if (secretCheck.found) {
+           setEasterEgg({
+               found: true,
+               message: secretCheck.message
+           });
+           return secretCheck.message;
+       }
+
+       const response = await fetch(`http://localhost:8080/api/${endpoint}`, {
+           method: 'POST',
+           headers: {
                    'Content-Type': 'application/json',
                },
                body: JSON.stringify({ text, key }),
@@ -62,7 +73,11 @@ function App() {
             <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
                 Vigenère Cipher
             </h1>
-            <CipherInput onEncrypt={handleEncrypt} onDecrypt={handleDecrypt} />
+            <CipherInput
+                onEncrypt={handleEncrypt}
+                onDecrypt={handleDecrypt}
+                easterEgg={easterEgg}
+            />
             {error && (
                 <div style={{
                     color: '#dc2626',

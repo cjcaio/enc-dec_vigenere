@@ -27,3 +27,6 @@ go.work.sum
 # idea package
 out/
 .idea/
+
+# secret
+secret.js

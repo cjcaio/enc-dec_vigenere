@@ -23,19 +23,24 @@ const ButtonWrapper = styled.div`
 
 
 const ActionButton = styled.button`
-    background-color: ${props => props.isFlipped ? '#f97316' : '#60a5fa'};
-    color: white;
-    border: none;
-    border-radius: 20px;
+    background-color: ${props => props.isFlipped ? '#fca65a' : '#A0C4FF'};
+    color: #333;
+    border: 1px solid #999;
+    border-radius: 12px;
     padding: 8px 24px;
     font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     cursor: pointer;
-    transition: var(--transition);
-    box-shadow: var(--button-shadow);
+    transition: background-color 0.3s ease, transform 0.15s ease;
 
     &:hover {
-        transform: translate(-1px, -1px);
-        box-shadow: var(--button-shadow-hover);
+        background-color: ${props => props.isFlipped ? '#fdae71' : '#B0D0FF'};
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(1px);
     }
 `;
 
@@ -67,7 +72,7 @@ const CardFace = styled.div`
     justify-content: center;
     padding: 0;
     border-radius: 10px;
-    border: 2.5px solid #1a1a1a; 
+    border: 3px solid #1a1a1a;
     background-color: white;
     box-shadow: 3px 3px 0 rgba(26, 26, 26, 0.9);
     box-sizing: border-box;
@@ -153,7 +158,7 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
         <Container>
             <ButtonWrapper>
                 <ActionButton onClick={handleSubmit} isFlipped={isFlipped}>
-                    {isFlipped ? 'DECODE' : 'ENCODE'}
+                    {isFlipped ? 'decode' : 'encode'}
                 </ActionButton>
             </ButtonWrapper>
 
