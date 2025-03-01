@@ -78,7 +78,7 @@ const About = () => {
                             background: currentView === 'vigenere' ? 'rgba(0, 0, 0, 0.05)' : 'transparent'
                         }}
                     >
-                        about Vigenère Cipher
+                        the Vigenère Cipher
                     </MenuItem>
                     <MenuItem
                         onClick={() => handleMenuClick('project')}
@@ -86,7 +86,7 @@ const About = () => {
                             background: currentView === 'project' ? 'rgba(0, 0, 0, 0.05)' : 'transparent'
                         }}
                     >
-                        about the Project
+                        the Project
                     </MenuItem>
                 </SidebarContent>
 

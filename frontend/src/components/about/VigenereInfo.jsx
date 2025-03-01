@@ -9,31 +9,40 @@ const VigenereInfo = () => (
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <Title>The Vigenère Cipher: A Historic Encryption Method</Title>
+            <Title>The Vigenère Cipher: A Historic Leap in Cryptography</Title>
         </motion.div>
 
         <Paragraph>
-            Developed in the 16th century by Blaise de Vigenère, this cipher was once deemed unbreakable. It marked a pivotal shift from the simple Caesar cipher, introducing a polyalphabetic approach that added complexity and security.
+            Often considered a milestone in the evolution of encryption, the Vigenère cipher was popularized during the 16th century by Blaise de Vigenère.
+            It represented a significant improvement over simpler ciphers like the Caesar cipher, thanks to its polyalphabetic nature that made it far more
+            resistant to frequency analysis.
         </Paragraph>
 
         <Paragraph>
-            <strong>How Does It Work?</strong> Imagine having a secret keyword that controls how each letter in your message is shifted. Here’s a quick overview:
+            <strong>How Does It Work?</strong> At its core, the Vigenère cipher relies on a secret keyword that governs how each letter in your message
+            should be shifted. The keyword letters are repeated or truncated to match the message length, ensuring continuous variation in shifts.
+            Below is a brief summary:
         </Paragraph>
 
         <ul style={{ paddingLeft: '20px', marginBottom: '12px' }}>
-            <li>The keyword’s letters determine the shift for each corresponding character in the message.</li>
-            <li>The keyword is repeated to match the message length.</li>
-            <li>Multiple letter shifts make it harder to decipher using frequency analysis compared to a single shift method.</li>
+            <li>Each letter in the keyword corresponds to a shift value for its matching position in the message.</li>
+            <li>If the message is longer than the keyword, the keyword repeats to remain aligned with every character.</li>
+            <li>This approach diversifies the shifts, complicating any attempts to break the code through common techniques like frequency analysis.</li>
         </ul>
 
         <Paragraph>
-            With its ingenious approach, the Vigenère cipher not only influenced later encryption methods but also set the stage for secure communications in eras long before modern computers.
+            Historically, the Vigenère cipher was hailed as “le chiffre indéchiffrable” (French for “the indecipherable cipher”). Although it
+            can be broken with modern computing power and analytical methods, it stands as a testament to centuries of ingenuity in the quest for
+            secure communication.
         </Paragraph>
 
         <Paragraph>
-            Interested in a deeper dive into its history and impact?{' '}
+            Curious to learn more about its origins, applications, and eventual vulnerabilities?
+        </Paragraph>
+
+        <Paragraph>
             <Link href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher" target="_blank" rel="noopener noreferrer">
-                Learn more about the Vigenère cipher →
+                Explore further details about the Vigenère cipher →
             </Link>
         </Paragraph>
     </ContentContainer>

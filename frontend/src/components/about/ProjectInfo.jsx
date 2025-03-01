@@ -4,28 +4,32 @@ import { ContentContainer, Title, Paragraph, Link, List, ListItem } from './styl
 const About = () => (
     <ContentContainer>
         <Title>About This Project</Title>
+
         <Paragraph>
-            My passion for cryptography and a desire to explore Go led me to create this project. I wanted to dive deep into Go’s structures, types, and test it for backend development, which inspired me to reimagine the classic Vigenère cipher.
+            I’ve always been drawn to cryptography, so when I set out to learn more about Go, I decided to combine the two.
+            This project reimagines the Vigenère cipher, showcasing Go’s backend capabilities with clear design patterns,
+            while leveraging modern front-end tools for a smooth user experience.
         </Paragraph>
 
-        {/* Using a consistent font size for the bullet points */}
         <Paragraph>
-            <strong>Technologies I Worked With:</strong>
+            <strong>Technologies I Used:</strong>
         </Paragraph>
         <List>
             <ListItem style={{ fontSize: '14px' }}>
-                React & Framer Motion for smooth, dynamic animations
+                React & Framer Motion for interactive, seamless animations
             </ListItem>
             <ListItem style={{ fontSize: '14px' }}>
-                A Go backend to truly understand thoughtful design patterns and coding practices
+                A Go backend to explore reliable design approaches and coding techniques
             </ListItem>
             <ListItem style={{ fontSize: '14px' }}>
-                Emotion for styling, ensuring a clear and responsive interface
+                Emotion for styling, ensuring a consistent and responsive interface
             </ListItem>
         </List>
 
         <Paragraph>
-            This project is more than just a cipher tool — it's my personal desire and journey into mastering new technologies and coding paradigms.
+            This project aims to be more than just a cipher tool. It represents an in-depth exploration of Go,
+            cryptographic concepts, and building a straightforward, maintainable codebase. If you're interested
+            in these topics or simply curious about its inner workings, feel free to explore the repository!
         </Paragraph>
 
         <Paragraph>
@@ -34,7 +38,7 @@ const About = () => (
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                View source on GitHub →
+                Check out the source on GitHub →
             </Link>
         </Paragraph>
     </ContentContainer>
