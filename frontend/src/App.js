@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import CipherInput from './components/CipherInput';
-import ResultDisplay from './components/ResultDisplay';
 import About from './components/About';
 import Footer from './components/Footer';
 import './styles/globals.css';
@@ -64,7 +63,7 @@ function App() {
                 Vigenère Cipher
             </h1>
             <CipherInput onEncrypt={handleEncrypt} onDecrypt={handleDecrypt} />
-            {error ? (
+            {error && (
                 <div style={{
                     color: '#dc2626',
                     textAlign: 'center',
@@ -72,13 +71,12 @@ function App() {
                 }}>
                     {error}
                 </div>
-            ) : (
-                <ResultDisplay result={result} />
             )}
             <Footer />
         </div>
     );
 }
+
 
 
 
