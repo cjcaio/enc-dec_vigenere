@@ -87,7 +87,6 @@ const CardFace = styled.div`
     }
 `;
 
-
 const FrontFace = styled(CardFace)`
     &:hover {
         ${props => !props.isFlipped && `
@@ -173,19 +172,18 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
                     animate={{ rotateY: isFlipped ? 180 : 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <FrontFace>
+                    <FrontFace isFlipped={isFlipped}>
                         <TextInput
                             value={text}
-                            onChange={(e) => setText(e.target.value)}
-                            placeholder="Enter text to encode..."
+                            onChange={handleTextChange}
+                            placeholder={isFlipped ? "Decoded text will appear here..." : "Enter text to encode..."}
                         />
                     </FrontFace>
-                    <BackFace>
+                    <BackFace isFlipped={isFlipped}>
                         <TextInput
                             value={encryptedText}
-                            onChange={(e) => setEncryptedText(e.target.value)}
-                            placeholder={isFlipped ? "Enter text to decode" : "Encoded text will appear here..."}
-                            readOnly={!isFlipped}
+                            onChange={handleEncryptedTextChange}
+                            placeholder={isFlipped ? "Enter text to decode..." : "Encoded text will appear here..."}
                         />
                     </BackFace>
                 </Card>
