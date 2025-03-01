@@ -3,6 +3,7 @@ import ThemeToggle from './components/ThemeToggle';
 import CipherInput from './components/CipherInput';
 import ResultDisplay from './components/ResultDisplay';
 import About from './components/About';
+import Footer from './components/Footer';
 import './styles/globals.css';
 
 function App() {
@@ -17,7 +18,11 @@ function App() {
   };
 
     return (
-        <div className="container">
+        <div className="container" style={{
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
             <About />
             <ThemeToggle />
             <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -25,9 +30,11 @@ function App() {
             </h1>
             <CipherInput onEncrypt={handleEncrypt} onDecrypt={handleDecrypt} />
             <ResultDisplay result={result} />
+            <Footer />
         </div>
     );
 }
+
 
 
 export default App;
