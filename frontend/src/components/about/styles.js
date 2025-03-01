@@ -19,6 +19,10 @@ export const AboutButton = styled.button`
         transform: none;
         opacity: 0.8;
     }
+
+    body.dark-mode & {
+        color: var(--text-dark);
+    }
 `;
 
 export const Overlay = styled(motion.div)`
@@ -31,17 +35,24 @@ export const Overlay = styled(motion.div)`
     z-index: 998;
 `;
 
+
 export const Sidebar = styled(motion.div)`
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     width: 350px;
-    background: white;
+    background: var(--surface-light);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 20px;
     z-index: 999;
+
+    body.dark-mode & {
+        background: var(--surface-dark);
+        box-shadow: 0 0 20px rgba(238, 238, 238, 0.2);
+    }
 `;
+
 
 export const SidebarContent = styled.div`
     margin-top: 60px;
@@ -60,19 +71,31 @@ export const MenuItem = styled.button`
     color: var(--text-light);
     transition: all 0.2s ease;
     box-shadow: none;
-    
+
     &:hover {
         background: rgba(0, 0, 0, 0.05);
-        transform: none;
+    }
+
+    body.dark-mode & {
+        color: var(--text-dark);
+        &:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
     }
 `;
+
 
 export const ContentContainer = styled.div`
     padding: 20px 10px;
     color: var(--text-light);
     font-size: 14px;
     line-height: 1.6;
+
+    body.dark-mode & {
+        color: var(--text-dark);
+    }
 `;
+
 
 export const Title = styled.h2`
     font-size: 20px;

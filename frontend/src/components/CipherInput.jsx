@@ -50,7 +50,6 @@ const ActionButton = styled.button`
     }
 `;
 
-
 const CardContainer = styled.div`
     perspective: 1000px;
     width: 100%;
