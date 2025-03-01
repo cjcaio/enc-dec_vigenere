@@ -176,14 +176,14 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
                         <TextInput
                             value={text}
                             onChange={handleTextChange}
-                            placeholder={isFlipped ? "Decoded text will appear here..." : "Enter text to encode..."}
+                            placeholder={isFlipped ? "Enter text to encode..." : "Enter text to encode..."}
                         />
                     </FrontFace>
                     <BackFace isFlipped={isFlipped}>
                         <TextInput
                             value={encryptedText}
                             onChange={handleEncryptedTextChange}
-                            placeholder={isFlipped ? "Enter text to decode..." : "Encoded text will appear here..."}
+                            placeholder={isFlipped ? "Enter text to decode..." : "Enter text to decode..."}
                         />
                     </BackFace>
                 </Card>
