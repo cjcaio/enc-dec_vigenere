@@ -22,7 +22,7 @@ function App() {
            return secretCheck.message;
        }
 
-       const response = await fetch(`http://localhost:8080/api/${endpoint}`, {
+       const response = await fetch(`https://enc-decvigenere-production.up.railway.app/api/${endpoint}`, {
            method: 'POST',
            headers: {
                    'Content-Type': 'application/json',
