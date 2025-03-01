@@ -1,13 +1,20 @@
 package main
 
 import (
-	"github.com/cjcaio/enc-dec_vigenere/internal/server"
 	"log"
+	"os"
+
+	"github.com/cjcaio/enc-dec_vigenere/internal/server"
 )
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	srv := server.NewServer()
 	srv.ConfigureRoutes()
 
-	log.Fatal(srv.Start(":8080"))
+	log.Fatal(srv.Start(":" + port))
 }
