@@ -104,25 +104,46 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleSubmit = async () => {
-        if (!text || !key) return;
-
-        try {
-            let apiResult;
-            if (!isFlipped) {
-                apiResult = await onEncrypt(text, key);
-                setEncryptedText(apiResult);
-            } else {
-                apiResult = await onDecrypt(encryptedText, key);
-                setText(apiResult);
-            }
-
+        if (!text && !encryptedText) {
+            setText('');
+            setEncryptedText('');
             setIsFlipped(!isFlipped);
-        } catch (error) {
-            console.error('Error:', error);
+            return;
+        }
+
+        if (key) {
+            try {
+                let apiResult;
+                if (!isFlipped) {
+                    apiResult = await onEncrypt(text, key);
+                    setEncryptedText(apiResult);
+                } else {
+                    apiResult = await onDecrypt(encryptedText, key);
+                    setText(apiResult);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        setIsFlipped(!isFlipped);
+    };
+
+    const handleTextChange = (e) => {
+        const newText = e.target.value;
+        setText(newText);
+        if (!newText) {
+            setEncryptedText('');
         }
     };
 
-
+    const handleEncryptedTextChange = (e) => {
+        const newText = e.target.value;
+        setEncryptedText(newText);
+        if (!newText) {
+            setText('');
+        }
+    };
 
 
     return (
@@ -149,8 +170,9 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
                     <BackFace>
                         <TextInput
                             value={encryptedText}
-                            readOnly
-                            placeholder="Encrypted text will appear here..."
+                            onChange={(e) => setEncryptedText(e.target.value)}
+                            placeholder={isFlipped ? "Enter text to decode" : "Encoded text will appear here..."}
+                            readOnly={!isFlipped}
                         />
                     </BackFace>
                 </Card>
