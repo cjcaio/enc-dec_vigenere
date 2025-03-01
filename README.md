@@ -78,15 +78,5 @@ Contributions to this project are more than welcome! Feel free to open an issue 
 
 ---
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## Acknowledgments
-Thanks to the creators of all the tools and libraries that made this project possible. And to anyone exploring or learning from this repository, I hope it inspires you to dive deeper into GoLang, cryptography, or building modern web applications.
-
----
-
 ## Want to Explore the Code?
 Check out the source on GitHub: [https://github.com/cjcaio/enc-dec_vigenere](https://github.com/cjcaio/enc-dec_vigenere)
