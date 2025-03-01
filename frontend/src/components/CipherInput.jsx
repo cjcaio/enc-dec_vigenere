@@ -103,14 +103,26 @@ const CipherInput = ({ onEncrypt, onDecrypt }) => {
     const [encryptedText, setEncryptedText] = useState('');
     const [isFlipped, setIsFlipped] = useState(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (!text || !key) return;
-        if (!isFlipped) {
-            setEncryptedText(text);
-        }
 
-        setIsFlipped(!isFlipped);
+        try {
+            if (!isFlipped) {
+                await onEncrypt(text, key);
+            } else {
+                await onDecrypt(encryptedText, key);
+            }
+
+            if (!isFlipped) {
+                setEncryptedText(text);
+            }
+
+            setIsFlipped(!isFlipped);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
+
 
 
     return (
