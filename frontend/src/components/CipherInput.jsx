@@ -84,17 +84,30 @@ const CardFace = styled.div`
 
     &:hover {
         border-color: #1a1a1a;
-        transform: translate(-2px, -2px);
-        box-shadow: 5px 5px 0 rgba(26, 26, 26, 0.9);
     }
 `;
 
 
-const FrontFace = styled(CardFace)``;
+const FrontFace = styled(CardFace)`
+    &:hover {
+        ${props => !props.isFlipped && `
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 rgba(26, 26, 26, 0.9);
+        `}
+    }
+`;
 
 const BackFace = styled(CardFace)`
     transform: rotateY(180deg);
+
+    &:hover {
+        ${props => props.isFlipped && `
+            transform: rotateY(180deg) translate(-2px, -2px);
+            box-shadow: 5px 5px 0 rgba(26, 26, 26, 0.9);
+        `}
+    }
 `;
+
 
 const CipherInput = ({ onEncrypt, onDecrypt }) => {
     const [text, setText] = useState('');
