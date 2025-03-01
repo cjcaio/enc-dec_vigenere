@@ -36,7 +36,7 @@ export const Sidebar = styled(motion.div)`
     left: 0;
     top: 0;
     bottom: 0;
-    width: 300px;
+    width: 350px;
     background: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -91,4 +91,15 @@ export const Link = styled.a`
     &:hover {
         text-decoration: underline;
     }
+`;
+
+export const List = styled.ul`
+    padding-left: 20px;
+    margin-bottom: 15px;
+`;
+
+export const ListItem = styled.li`
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px;
 `;

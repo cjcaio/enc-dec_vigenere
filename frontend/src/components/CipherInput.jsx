@@ -39,15 +39,6 @@ const ActionButton = styled.button`
     }
 `;
 
-
-
-const QuestionText = styled.p`
-    color: #000;
-    margin: 1rem 0;
-    font-size: 16px;
-    text-align: center;
-`;
-
 const CardContainer = styled.div`
     perspective: 1000px;
     width: 100%;
