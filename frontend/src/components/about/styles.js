@@ -38,22 +38,28 @@ export const Overlay = styled(motion.div)`
 
 export const Sidebar = styled(motion.div)`
     position: fixed;
-    top: 0;
     left: 0;
-    width: 400px;
-    height: 100vh;
-    background: var(--background);
-    padding: 2rem;
-    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    width: 350px;
+    background: var(--surface-light);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 999;
+
+    body.dark-mode & {
+        background: var(--surface-dark);
+        box-shadow: 0 0 20px rgba(238, 238, 238, 0.2);
+    }
 
     @media (max-width: 768px) {
         width: 100%;
         overflow-y: auto;
-        padding: 1rem;
-        -webkit-overflow-scrolling: touch; 
+        -webkit-overflow-scrolling: touch;
+        height: 100vh; // Garante altura total em mobile
+        padding-bottom: 40px; // Adiciona espaço extra no final para mobile
     }
 `;
-
 
 
 export const SidebarContent = styled.div`
