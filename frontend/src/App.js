@@ -5,6 +5,7 @@ import About from './components/about/About';
 import Footer from './components/Footer';
 import './styles/globals.css';
 import { checkSecretCombo } from './secret';
+import { Analytics } from '@vercel/analytics/next';
 
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 
@@ -90,6 +91,7 @@ function App() {
                 </div>
             )}
             <Footer />
+            <Analytics />
         </div>
     );
 }
