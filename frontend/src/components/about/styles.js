@@ -35,7 +35,6 @@ export const Overlay = styled(motion.div)`
     z-index: 998;
 `;
 
-
 export const Sidebar = styled(motion.div)`
     position: fixed;
     left: 0;
@@ -60,9 +59,6 @@ export const Sidebar = styled(motion.div)`
         padding: 20px 12px;
     }
 `;
-
-
-
 
 export const SidebarContent = styled.div`
     margin-top: 60px;
@@ -94,7 +90,6 @@ export const MenuItem = styled.button`
     }
 `;
 
-
 export const ContentContainer = styled.div`
     padding: 20px 10px;
     color: var(--text-light);
@@ -110,7 +105,6 @@ export const ContentContainer = styled.div`
     }
     }
 `;
-
 
 export const Title = styled.h2`
     font-size: 20px;

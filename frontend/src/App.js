@@ -11,6 +11,8 @@ function App() {
   const [error, setError] = useState('');
   const [easterEgg, setEasterEgg] = useState({ found: false, message: '' });
 
+
+
   const apiCall = async (endpoint, text, key) => {
    try {
        const secretCheck = checkSecretCombo(text, key);
