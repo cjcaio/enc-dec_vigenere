@@ -53,13 +53,14 @@ export const Sidebar = styled(motion.div)`
     }
 
     @media (max-width: 768px) {
-        width: 100%;
+        width: calc(90%);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        height: 100vh;
+        height: auto;
         padding: 20px 12px;
     }
 `;
+
 
 
 
