@@ -6,12 +6,12 @@ import Footer from './components/Footer';
 import './styles/globals.css';
 import { checkSecretCombo } from './secret';
 
+const baseURL = process.env.REACT_APP_API_BASE_URL;
+
 function App() {
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
   const [easterEgg, setEasterEgg] = useState({ found: false, message: '' });
-
-
 
   const apiCall = async (endpoint, text, key) => {
    try {
@@ -24,7 +24,7 @@ function App() {
            return secretCheck.message;
        }
 
-       const response = await fetch(`https://enc-decvigenere-production.up.railway.app/api/${endpoint}`, {
+       const response = await fetch(`${baseURL}${endpoint}`, {
            method: 'POST',
            headers: {
                    'Content-Type': 'application/json',
